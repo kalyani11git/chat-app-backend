@@ -13,13 +13,27 @@ dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server, {
+
+// const io = socketIo(server, {
+//   cors: {
+//     origin: 'http://localhost:5173',
+//     methods: ['GET', 'POST'],
+//     credentials: true
+//   }
+// });
+
+const allowedOrigins = [
+  "http://localhost:5173", // Development
+  "https://spontaneous-souffle-55ef58.netlify.app", // Deployed frontend
+];
+
+const io = require("socket.io")(server, {
   cors: {
-    origin: 'http://localhost:5173',
-    methods: ['GET', 'POST'],
-    credentials: true
-  }
+    origin: allowedOrigins,
+    methods: ["GET", "POST"],
+  },
 });
+
 
 // Middleware
 app.use(bodyParser.json());
@@ -32,6 +46,9 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+
+app.use(cors({ origin: "*", methods: ["GET", "POST", "PUT", "DELETE"] }));
 
 // Socket.IO connection
 let users = {}; // Store connected users
