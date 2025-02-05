@@ -11,7 +11,7 @@ const cloudinary = require("../config/CloudinaryConfig");
 module.exports = (app) => {
   // Enable CORS for all routes or you can configure it for specific routes
   app.use(cors({
-    origin: 'http://localhost:5173', // Allow frontend origin (replace with your frontend URL)
+    origin:  'https://spontaneous-souffle-55ef58.netlify.app', // Allow frontend origin (replace with your frontend URL)
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'], // Ensure the correct headers are allowed
   }));
