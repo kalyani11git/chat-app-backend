@@ -40,7 +40,7 @@ app.use(bodyParser.json());
 
 // CORS options
 const corsOptions = {
-  origin: 'http://localhost:5173', // React app URL
+  origin:  'https://spontaneous-souffle-55ef58.netlify.app', // React app URL
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization'], // Make sure 'Authorization' is included
 };
