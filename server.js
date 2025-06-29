@@ -24,7 +24,7 @@ const server = http.createServer(app);
 
 const allowedOrigins = [
   "http://localhost:5173", // Development
-  "https://spontaneous-souffle-55ef58.netlify.app", // Deployed frontend
+  "https://chatappfrontendkal.netlify.app/", // Deployed frontend
 ];
 
 const io = require("socket.io")(server, {
@@ -40,7 +40,7 @@ app.use(bodyParser.json());
 
 // CORS options
 const corsOptions = {
-  origin:  'https://spontaneous-souffle-55ef58.netlify.app', // React app URL
+  origin:  'https://chatappfrontendkal.netlify.app/', // React app URL
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization'], // Make sure 'Authorization' is included
 };
